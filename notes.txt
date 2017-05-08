@@ -1,0 +1,42 @@
+8 bytes data
+
+1 = 3uS low + 1uS high
+0 = 1uS low + 3uS high
+
+1 = stop bit
+
+
+f9c:	00 00       	nop                       1 cycle
+f9e:	59 98       	cbi	0x0b, 1	; 11          2 cycles
+fa0:	00 00       	nop                       1 cycle
+fa2:	64 ef       	ldi	r22, 0xF4	; 244
+fa4:	71 e0       	ldi	r23, 0x01	; 1
+fa6:	80 e0       	ldi	r24, 0x00	; 0
+fa8:	90 e0       	ldi	r25, 0x00	; 0
+faa:	0e 94 eb 02 	call	0x5d6	; 0x5d6 <delay>
+fae:	00 00       	nop
+fb0:	59 9a       	sbi	0x0b, 1	; 11          2 cycles
+fb2:	00 00       	nop
+
+http://www.int03.co.uk/crema/hardware/gamecube/gc-control.htm
+
+Polling sequence
+0100 0000 0000 0011 0000 0000
+0x40 0x03 0x00
+          (0x01 for rumble)
+
+
+Wire colors
+Yellow - 5v
+White = GND
+Green = N/A
+Black = GND
+Red = Data
+Blue = Vcc (3.3v)
+
+joystick x bits 16 - 23
+joystick y bits 24 - 31
+cstick x bits 32 - 39
+cstick y bits 40 - 47
+L bits 48 - 55
+R bits 56 - 63
