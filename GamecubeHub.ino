@@ -36,7 +36,6 @@ static struct {
     unsigned int bX;
     unsigned int bB;
     unsigned int bA;
-    unsigned int b1; // wtf is this
     unsigned int bL;
     unsigned int bR;
     unsigned int bZ;
@@ -100,7 +99,6 @@ static void gcConvert() {
     gcStatus.bX = gcRaw[5];
     gcStatus.bB = gcRaw[6];
     gcStatus.bA = gcRaw[7];
-    gcStatus.b1 = gcRaw[8];
     gcStatus.bL = gcRaw[9];
     gcStatus.bR = gcRaw[10];
     gcStatus.bZ = gcRaw[11];
@@ -319,6 +317,5 @@ void loop() {
         gcCalibrate();
 
     joystickSend();
-
     delay(1);
 }
